@@ -8,6 +8,8 @@ public class PaqueteEnvio implements Serializable {
      String ip;
      String mensaje;
     String horaEnvio;
+    boolean esUsuario;
+
 
     public PaqueteEnvio(String nick, String ip, String mensaje) {
         this.nick = nick;
@@ -43,5 +45,13 @@ public class PaqueteEnvio implements Serializable {
 
     public String getHoraEnvio() {
         return horaEnvio;
+    }
+
+    public boolean isEsUsuario() {
+        return esUsuario;
+    }
+
+    public void setEsUsuario(boolean esUsuario) {
+        this.esUsuario = esUsuario;
     }
 }

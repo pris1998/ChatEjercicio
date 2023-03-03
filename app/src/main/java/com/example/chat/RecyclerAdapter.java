@@ -29,9 +29,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.RecyclerHolder holder, int position) {
-    holder.txtName.setText(listapaquete.get(position).getNick());
-    holder.txtIp.setText( listapaquete.get(position).getIp());
-    holder.txtMensaje.setText( listapaquete.get(position).getMensaje());
+    PaqueteEnvio pack = listapaquete.get(position);
+        if (pack.isEsUsuario()) {
+            holder.txtName.setText(pack.getNick());
+            holder.txtIp.setText( pack.getIp());
+            holder.txtMensaje.setText( pack.getMensaje());
+        }else{
+            holder.txtName.setText(pack.getNick());
+            holder.txtIp.setText( pack.getIp());
+            holder.txtMensaje.setText( pack.getMensaje());
+        }
+
     }
 
     @Override
@@ -52,8 +60,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             txtIp = itemView.findViewById(R.id.txtIPChat);
             txtMensaje = itemView.findViewById(R.id.txtMensajeChat);
 
-
         }
+
     }
 }
 

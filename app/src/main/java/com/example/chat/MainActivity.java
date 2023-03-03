@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity  {
 
     String name,ip,mensaje = "";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

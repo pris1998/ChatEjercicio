@@ -19,7 +19,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
         android:fontFamily="sans-serif-black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,13 +32,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.88" />
+        app:layout_constraintGuide_percent="1.0" />
 
     <TextView
         android:id="@+id/txtNameChat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="11dp"
         app:layout_constraintBottom_toTopOf="@+id/txtMensajeChat"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
@@ -51,7 +53,9 @@
         android:id="@+id/txtIPChat"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toTopOf="@+id/txtMensajeChat"
         app:layout_constraintEnd_toEndOf="parent"
