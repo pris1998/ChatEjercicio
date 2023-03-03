@@ -15,7 +15,7 @@ public class PaqueteEnvio implements Serializable {
         this.nick = nick;
         this.ip = ip;
         this.mensaje = mensaje;
-        Date hora = new Date();
+
     }
 
 

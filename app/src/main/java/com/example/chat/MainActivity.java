@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 mensaje = txtMensaje.getText().toString().trim();
+                name = txtName.getText().toString().trim();
+                ip = txtIp.getText().toString().trim();
                 //si el mensaje está vacío no se envía
                 if (mensaje.isEmpty()) {
                     return;
