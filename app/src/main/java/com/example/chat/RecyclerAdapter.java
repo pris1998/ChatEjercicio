@@ -42,15 +42,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             holder.txtIp.setText( pack.getIp());
             holder.txtMensaje.setText( pack.getMensaje());
         }
-        /*if (pack.isEsUsuario()) {
-            holder.hideMR();
-            holder.NombreUser.setText(pack.getNick());
-            holder.Mensaje.setText(pack.getMensaje());
-        }else{
-            holder.hideMD();
-            holder.NombreUser.setText(pack.getNick());
-            holder.Mensaje.setText(pack.getMensaje());
-        }*/
 
     }
 
@@ -65,15 +56,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         TextView txtIp;
         TextView txtMensaje;
 
-        public View viewMD;
-        public View viewMR;
-
-        TextView NombreUser ;
-        TextView Mensaje;
-        TextView Name ;
-        TextView Mensaje2;
-
-
         public RecyclerHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -81,32 +63,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             txtIp = itemView.findViewById(R.id.txtIPChat);
             txtMensaje = itemView.findViewById(R.id.txtMensajeChat);
 
-            viewMD = itemView.findViewById(R.id.viewMR);
-            viewMR = itemView.findViewById(R.id.viewMD);
-
-
-            NombreUser = itemView.findViewById(R.id.NombreUser);
-            Mensaje = itemView.findViewById(R.id.Mensaje);
-            Name = itemView.findViewById(R.id.Name);
-            Mensaje2 = itemView.findViewById(R.id.Mensaje2);
         }
-        public void hideMD(){
-            viewMD.setVisibility(View.INVISIBLE);
-            Name.setVisibility(View.INVISIBLE);
-            Mensaje2.setVisibility(View.INVISIBLE);
-            viewMR.setVisibility(View.VISIBLE);
-            NombreUser.setVisibility(View.VISIBLE);
-            Mensaje.setVisibility(View.VISIBLE);
 
-        }
-        public void hideMR(){
-            viewMR.setVisibility(View.INVISIBLE);
-            NombreUser.setVisibility(View.INVISIBLE);
-            Mensaje.setVisibility(View.INVISIBLE);
-            viewMD.setVisibility(View.VISIBLE);
-            Name.setVisibility(View.VISIBLE);
-            Mensaje2.setVisibility(View.VISIBLE);
-        }
     }
 }
 
