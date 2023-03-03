@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.chat.adaptadores.RecyclerAdapter;
+import com.example.chat.models.Cliente;
+import com.example.chat.models.PaqueteEnvio;
+import com.example.chat.models.Servidor;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
@@ -19,7 +24,7 @@ public class MainActivity extends AppCompatActivity  {
     RecyclerView recyclerView;
     //lista de paquetes recibe RecyclerView
     ArrayList<PaqueteEnvio> lista ;
-
+    //Variables y boton
     TextView txtName,txtIp,txtMensaje;
     Button btnEnviar;
     //Hilos encargados de realizar tareas de conexion con la red
@@ -28,9 +33,9 @@ public class MainActivity extends AppCompatActivity  {
     Thread hiloCliente;
 
     PaqueteEnvio paqueteRecibido;
-
-    Servidor servidor;
-    Cliente cliente;
+    //Instancias de las clases
+    public  Servidor servidor;
+    public  Cliente cliente;
 
     String name,ip,mensaje = "";
 
@@ -38,7 +43,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Inicializacion de los elementos
         txtName = findViewById(R.id.txtName);
         txtIp = findViewById(R.id.textoIP);
         txtMensaje = findViewById(R.id.txtMensaje);
@@ -53,7 +58,6 @@ public class MainActivity extends AppCompatActivity  {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-
 
         cliente = new Cliente();
 
@@ -80,7 +84,7 @@ public class MainActivity extends AppCompatActivity  {
                     return;
                 }
                 paqueteRecibido = new PaqueteEnvio(name,ip,mensaje);
-
+                    //Comienza un hiloEnvio es para ir mandando mensajes
                  hiloEnvio = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -88,9 +92,9 @@ public class MainActivity extends AppCompatActivity  {
                         ip = paqueteRecibido.getIp();
                         mensaje = paqueteRecibido.getMensaje();
 
-                        //llama al metodo enviar del Servidor
+                        //Llama al metodo enviar del Servidor
                         servidor.iniciar();
-                        //creacioón de un socket nuevo de cliente con IP destino
+                        //Creacioón de un socket nuevo de cliente con IP destino
                         hiloCliente = new Thread(new Runnable() {
                             @Override
                             public void run() {
@@ -106,11 +110,13 @@ public class MainActivity extends AppCompatActivity  {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                //Añadimos a la lista
                 lista.add(paqueteRecibido);
-
+                //Llamamos a nuestro método para que almacene los mensajes
                 avisarRVmensajes();
+                //Comienza el hiloCliente
                 hiloCliente.start();
-                //sirve para avisar  de que no ha habido ninguna conexion
+                //Avisa de que no ha habido ninguna conexion
                 if (cliente.clienteSocket == null) {
                     Log.d("AVISO","El destinatario no existe o se encuentra desconectado ");
                     lista.add(paqueteRecibido);

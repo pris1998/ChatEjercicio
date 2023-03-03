@@ -21,7 +21,9 @@ public class Login extends AppCompatActivity {
         textoNameUser = findViewById(R.id.textoNameUser);
         btnEntrar = findViewById(R.id.btnEntrar);
 
-
+        //Boton que implementa un OnClickListener que al
+        // pulsar te manda al MainActivity una vez escrito el
+        //nombre del usuario
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

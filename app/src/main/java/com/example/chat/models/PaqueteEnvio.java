@@ -1,16 +1,16 @@
-package com.example.chat;
+package com.example.chat.models;
 
 import java.io.Serializable;
 import java.util.Date;
-
+//Clase que almacena el nombre, la ip y el mensaje
 public class PaqueteEnvio implements Serializable {
      String nick;
      String ip;
      String mensaje;
-    String horaEnvio;
+   //Variable boleana para identificar que el usuario es el que está escribiendo
     boolean esUsuario;
 
-
+    //Constructor de la clase
     public PaqueteEnvio(String nick, String ip, String mensaje) {
         this.nick = nick;
         this.ip = ip;
@@ -41,10 +41,6 @@ public class PaqueteEnvio implements Serializable {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
-    }
-
-    public String getHoraEnvio() {
-        return horaEnvio;
     }
 
     public boolean isEsUsuario() {

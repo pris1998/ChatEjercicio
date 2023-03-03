@@ -1,4 +1,4 @@
-package com.example.chat;
+package com.example.chat.models;
 
 import android.util.Log;
 
@@ -36,7 +36,7 @@ public class Servidor  implements Runnable {
     }
 
     /**
-     * Método run
+     * Método implementa Runnable
      */
     @Override
     public void run() {
@@ -45,7 +45,7 @@ public class Servidor  implements Runnable {
             while(true){
                 // El Socket espera a que le llegue la conexión
                 Socket misocket = serverSocket.accept();
-                //recoge el paquete dle cliente aceptando mediante un flujo de entrada (input)
+                //recoge el paquete del cliente aceptando mediante un flujo de entrada (input)
                 ObjectInputStream entrada = new ObjectInputStream(misocket.getInputStream());
                 //guarda en una variable pública
                 paquete_recibido = (PaqueteEnvio) entrada.readObject();
@@ -59,9 +59,9 @@ public class Servidor  implements Runnable {
                 Socket enviarDestinatario = new Socket(ip,9999);
                 ObjectOutputStream paqueteReenvio = new ObjectOutputStream(enviarDestinatario.getOutputStream());
                 paqueteReenvio.writeObject(paquete_recibido);
-
+                //Cierra paqueteReenvio
                 paqueteReenvio.close();
-
+                //Cierra el flujo y el socket creado
                 entrada.close();
                 misocket.close();
             }

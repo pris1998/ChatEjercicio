@@ -1,4 +1,4 @@
-package com.example.chat;
+package com.example.chat.models;
 
 import android.util.Log;
 
@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class Cliente implements Runnable{
 
-    Socket clienteSocket;
+    public Socket clienteSocket;
     Thread hiloIniciarCliente;
     public static final int PUERTO = 9090;
 
